@@ -2,7 +2,7 @@
 
 A Python testing and troubleshooting project built in a Windows 11 lab. It verifies how a keyboard-event module handles characters, writes local logs, and releases resources when a session ends or encounters an error.
 
-**Result: 36 automated tests passed in the Windows lab.** The tests use simulated events and mock listeners. The screenshots demonstrate the lab run; actual Windows keyboard-hook behavior has not been validated.
+**Result: 36 automated tests passed in the Windows lab.** The tests use simulated events and mock listeners. An exported Windows source bundle, full report, environment record, and verified checksums are included. Actual Windows keyboard-hook behavior has not been validated.
 
 **Skills demonstrated:** Python · pytest · unittest.mock · file I/O · exception handling · environment diagnostics · PowerShell · technical documentation
 
@@ -44,13 +44,13 @@ These are collected test cases, including parameterized cases. The count is not 
 
 ![Windows lab: 36 automated tests passed](docs/screenshots/11-full-test-suite-36-passed.png)
 
-The saved-report check finds both the passing test count and the diagnostic success message:
+After restoring the VM snapshot, I reran the suite and diagnostics, exported the source and reports, and verified the transferred files using SHA-256. The [complete Windows report](reports/windows-vm-verification-report.txt) contains `36 passed in 0.26s` and `All checks passed`.
 
-![Windows lab: saved report and diagnostics verified](docs/screenshots/12-test-report-saved.png)
+![Restored Windows VM: report, exit codes, and checksum verified](docs/screenshots/13-windows-vm-report-verified.png)
 
 [Detailed keyboard-event test results](docs/screenshots/08-keyboard-event-tests-passed.png) · [Evidence review and remaining gaps](docs/evidence-and-gaps.md)
 
-**Evidence note:** This repository maintains the source prepared for the guided lab. The supplied screenshot folder did not contain an export of the VM's source files or its actual `test_report.txt`. Windows screenshots are historical evidence of the walkthrough version; the separately labeled [macOS verification report](reports/macos-verification.txt) records a test of this repository's source. They are not presented as the same run. Minor walkthrough differences include sample input strings and diagnostic wording.
+**Evidence note:** The [unchanged Windows export and source comparison](reports/restored-windows-vm.md) preserve the restored VM version separately from the maintained source. All nine file checksums and the ZIP checksum matched after transfer. The restored run, earlier screenshots, [macOS verification](reports/macos-verification.txt), and hosted CI are separate executions. The comparison documents small source differences; matching test counts alone do not establish identical files.
 
 ## Run the project
 
@@ -67,7 +67,7 @@ The `--live` option checks Windows and the installed `pynput` distribution. It d
 
 On macOS/Linux, create the environment with `python3 -m venv .venv`, use `.venv/bin/python` for the remaining commands, and omit `--live`. `pynput` is installed only on Windows. See [the code and command walkthrough](docs/code-walkthrough.md) for an explanation of each step.
 
-Dependencies have bounded ranges. The exact package versions used for the new local verification are saved in [reports/macos-environment.txt](reports/macos-environment.txt); the Windows versions above come from the screenshots.
+Dependencies have bounded ranges. Recorded versions are available for [the Windows VM](reports/windows-vm-environment.txt) and [the macOS verification](reports/macos-environment.txt). The restored snapshot did not contain `requirements.txt` or `pyproject.toml`; the maintained repository supplies these setup files.
 
 ## Save a report
 
@@ -101,7 +101,7 @@ docs/
   interview-notes.md           Project explanation and interview practice
   evidence-and-gaps.md         Screenshot review and improvement plan
   screenshots/                Windows results and prototype warning evidence
-reports/                      Separately labeled local verification
+reports/                      Windows export, comparison, and macOS verification
 .github/workflows/tests.yml    Windows and Linux automated test workflow
 requirements.txt              Dependency ranges
 pyproject.toml                pytest discovery settings
@@ -117,7 +117,7 @@ logs/.gitkeep                 Empty local-log directory
 
 The buffer is unbounded, logs have no timestamps or rotation, and shutdown joins have no timeout. Lifecycle calls must be made serially from the controlling thread. A file flush does not guarantee survival of a power failure. These are documented limits of a small testing lab, not production guarantees.
 
-The included [GitHub Actions workflow](.github/workflows/tests.yml) runs the simulated suite on Windows and Linux with Python 3.14 after pushes and pull requests. The initial run linked above passed; check the run attached to any later commit before claiming that revision passed. The next useful improvements are an exported original Windows source/report snapshot and focused failure tests for import errors and simultaneous startup/cleanup failures. See the [prioritized gap review](docs/evidence-and-gaps.md).
+The included [GitHub Actions workflow](.github/workflows/tests.yml) runs the simulated suite on Windows and Linux with Python 3.14 after pushes and pull requests. The initial run linked above passed; check the run attached to any later commit before claiming that revision passed. The Windows export gap is now closed for the restored snapshot. Useful extensions include focused failure tests for import errors and simultaneous startup/cleanup failures. See the [prioritized gap review](docs/evidence-and-gaps.md).
 
 ## Learning context
 
