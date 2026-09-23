@@ -1,0 +1,37 @@
+name: Simulated test suite
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    name: Python 3.14 on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.14'
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Record environment
+        run: python -m pip freeze
+      - name: Run simulated tests
+        run: python -m pytest tests/ -v --tb=short
+      - name: Check simulated-test prerequisites
+        run: python diagnose.py
+      - name: Check Windows prerequisites without capturing input
+        if: runner.os == 'Windows'
+        run: python diagnose.py --live
