@@ -38,6 +38,12 @@ The Windows screenshots show 10 log-handler, 21 event-handling, and 5 diagnostic
 
 An installation command omitted `-m`, causing Python to look for a file named `pip`. The corrected form, `python.exe -m pip`, runs pip as a module in the selected environment. A later report check found diagnostics but no test summary; the earlier screenshot shows a malformed `tests-v` argument. I reran the corrected command, saved the output, and searched the report for both `36 passed` and `All checks passed`. `Tee-Object` helped display and save the result; the evidence does not establish output redirection as the cause of the earlier failure.
 
+## How did you make the Windows evidence reviewable?
+
+“After restoring my Windows lab snapshot, I reran the tests and diagnostics, saved both outputs, and checked both exit codes. I exported the source, tests, environment details, and report together. SHA-256 checksums confirmed that the ZIP and its nine recorded files transferred without changing. I also compared the exported source with the maintained version and documented the differences. The checksums establish file integrity; they do not prove when the run occurred or validate real keyboard capture.”
+
+The [export notes](../reports/restored-windows-vm.md) show the commands and explain why each was used. The guest clock and timestamp-format caveat are recorded openly. A fresh run is labeled as a fresh run rather than presented as the earlier historical report.
+
 ## How does this relate to your earlier prototype?
 
 “The earlier script helped me learn `pynput` callbacks, special-key handling, append-mode file writing, timestamps, and an Escape stop condition. The later guided lab applies related concepts in separate event-handling and storage components, with mocks and automated tests. It does not import the old script, and it does not retain timestamps or the Escape shortcut. I describe it as a progression in learning and testability rather than claiming a direct integration or complete feature parity.”

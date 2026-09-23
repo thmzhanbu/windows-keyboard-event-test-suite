@@ -5,3 +5,4 @@
 - [Interview notes](interview-notes.md): a short project explanation and questions to practice.
 - [Evidence and gaps](evidence-and-gaps.md): screenshot decisions, validation boundaries, and next improvements.
 - [Windows screenshots](screenshots/README.md): selected original evidence from the guided lab.
+- [Restored VM verification](../reports/restored-windows-vm.md): exported source, full Windows report, verified checksums, and comparison with the maintained implementation.

@@ -60,7 +60,7 @@ The supplied 4:10 PM screenshot is included as troubleshooting evidence: it show
 
 The supplied `keylog.txt` contains 56 lines matching the timestamped event format: 41 single-character entries and 15 special-key entries. That is consistent with this script's output format, but the file has no run identifier, source revision, date, or operating-system marker. The available artifacts do not establish that it came from the pictured run. The raw typed content is kept local and excluded from Git; the counts describe the inspected file, not a capture test performed for this repository.
 
-These macOS prototype artifacts also do not replace the missing export of the original Windows VM test-suite source or `test_report.txt`. See [the evidence review](evidence-and-gaps.md).
+The Windows test-suite source and a fresh verification report are now preserved in a separate [restored VM evidence bundle](../reports/restored-windows-vm.md). Those artifacts establish the restored test run independently of the earlier macOS prototype. See [the evidence review](evidence-and-gaps.md).
 
 ## How I explain the progression
 
