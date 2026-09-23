@@ -9,6 +9,7 @@ The strongest result is a documented Windows lab run with **36 passing simulated
 | [Full-suite result](screenshots/11-full-test-suite-36-passed.png) | The Windows lab run finished with `36 passed in 0.29s`. | Exact source revision, complete environment header, or real keyboard hooks. |
 | [Saved-report verification](screenshots/12-test-report-saved.png) | The report contained `36 passed in 0.25s` at line 44 and `All checks passed` at line 53. Preflight output shows Python 3.14.7, pytest 9.1.1, and pynput 1.8.2. | Access to the complete original Windows text report or validation of operating-system events. |
 | [Keyboard-event test details](screenshots/08-keyboard-event-tests-passed.png) | `win32`, Python 3.14.7, pytest 9.1.1, 21 named event tests, and a passing result. | A production keyboard-capture session. These tests use simulated events and mock listeners. |
+| [Initial GitHub Actions run](https://github.com/thmzhanbu/windows-keyboard-event-test-suite/actions/runs/35823412189) | Windows and Linux jobs succeeded for maintained-source commit `032e860d84c8c926840812e1a6b9c52a0e79054e`; the Windows job collected 36 tests. | Live keyboard capture, the original VM source, or the status of later commits. |
 
 The different timings in screenshots 11 and 12 are from separate executions. They are observations, not performance benchmarks.
 
@@ -44,7 +45,7 @@ No credentials or personal captured input were visible in the reviewed images. P
 ## Remaining areas and priorities
 
 1. **Preserve the original Windows report and source.** Export them from the VM if exact historical reproducibility is needed. Keep them separately identified from the maintained version.
-2. **Check the automated run for the final revision.** The included [CI workflow](../.github/workflows/tests.yml) runs the simulated suite on Windows and Linux. A successful run linked to its commit is stronger than another generic screenshot. Inspect the actual result in Actions before describing it as validated; historical screenshots retain their original meaning.
+2. **Initial CI verification completed.** The linked run succeeded on Windows and Linux for commit `032e860d84c8c926840812e1a6b9c52a0e79054e`. The included [CI workflow](../.github/workflows/tests.yml) checks subsequent revisions too; inspect the run for the specific commit being discussed. Historical VM screenshots retain their original meaning.
 3. **Keep the integration boundary explicit.** `diagnose.py --live` checks Windows and package availability without opening an input hook. Real Windows event handling remains unverified. Live integration is optional for this project's current testing scope.
 4. **Develop failure-path coverage when extending the project.** Useful cases include source-import failures, missing live dependencies, direct write errors, and simultaneous startup/cleanup failures. Add tests for behavior, not merely to increase the count.
 
@@ -52,4 +53,4 @@ The implementation is a small lab project. Its memory buffer grows until cleared
 
 ## Are more screenshots needed?
 
-No additional screenshot is needed to document the existing 36-test run. After publishing, a repository overview is optional. Link the actual CI result for the final commit; a screenshot of that result is optional. If the source changes and is revalidated in the Windows VM, capture that new result with the environment, command, and summary visible. Do not retake or edit historical screenshots merely to match a newer test count.
+No additional screenshot is needed to document the existing 36-test run. The initial successful CI result is linked above; a screenshot of it or a repository overview is optional. Check the actual CI result for later commits. If the source changes and is revalidated in the Windows VM, capture that new result with the environment, command, and summary visible. Do not retake or edit historical screenshots merely to match a newer test count.
