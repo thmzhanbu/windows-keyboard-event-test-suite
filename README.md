@@ -36,6 +36,8 @@ These are collected test cases, including parameterized cases. The count is not 
 
 **Windows lab:** Windows 11 VM `win11-soc-lab`, Python 3.14.7, pytest 9.1.1, pynput 1.8.2.
 
+**Maintained-source CI:** [The initial GitHub Actions run passed on Windows and Linux](https://github.com/thmzhanbu/windows-keyboard-event-test-suite/actions/runs/35823412189) for commit `032e860d84c8c926840812e1a6b9c52a0e79054e`. Both jobs succeeded; the Windows job collected 36 tests. This verifies the simulated suite on hosted runners, not live keyboard capture.
+
 ![Windows lab: 36 automated tests passed](docs/screenshots/11-full-test-suite-36-passed.png)
 
 The saved-report check finds both the passing test count and the diagnostic success message:
@@ -109,7 +111,7 @@ logs/.gitkeep                 Empty local-log directory
 
 The buffer is unbounded, logs have no timestamps or rotation, and shutdown joins have no timeout. Lifecycle calls must be made serially from the controlling thread. A file flush does not guarantee survival of a power failure. These are documented limits of a small testing lab, not production guarantees.
 
-The included [GitHub Actions workflow](.github/workflows/tests.yml) runs the simulated suite on Windows and Linux with Python 3.14 after pushes and pull requests. Its actual run status is available in the repository's Actions tab; configuration alone is not proof of a successful run. The next useful improvements are an exported original Windows source/report snapshot and focused failure tests for import errors and simultaneous startup/cleanup failures. See the [prioritized gap review](docs/evidence-and-gaps.md).
+The included [GitHub Actions workflow](.github/workflows/tests.yml) runs the simulated suite on Windows and Linux with Python 3.14 after pushes and pull requests. The initial run linked above passed; check the run attached to any later commit before claiming that revision passed. The next useful improvements are an exported original Windows source/report snapshot and focused failure tests for import errors and simultaneous startup/cleanup failures. See the [prioritized gap review](docs/evidence-and-gaps.md).
 
 ## Learning context
 
