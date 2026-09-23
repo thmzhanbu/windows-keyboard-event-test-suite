@@ -1,0 +1,53 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.7, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\SOC\Documents\keylogger-test-suite\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\SOC\Documents\keylogger-test-suite
+collecting ... collected 36 items
+
+tests/test_diagnose.py::test_writable_directory_created PASSED           [  2%]
+tests/test_diagnose.py::test_file_in_place_of_directory PASSED           [  5%]
+tests/test_diagnose.py::test_missing_package PASSED                      [  8%]
+tests/test_diagnose.py::test_live_preflight_rejects_non_windows PASSED   [ 11%]
+tests/test_diagnose.py::test_default_preflight PASSED                    [ 13%]
+tests/test_keylogger.py::test_character_captured PASSED                  [ 16%]
+tests/test_keylogger.py::test_characters_in_order PASSED                 [ 19%]
+tests/test_keylogger.py::test_special_keys[shift] PASSED                 [ 22%]
+tests/test_keylogger.py::test_special_keys[enter] PASSED                 [ 25%]
+tests/test_keylogger.py::test_special_keys[f1] PASSED                    [ 27%]
+tests/test_keylogger.py::test_special_keys[space] PASSED                 [ 30%]
+tests/test_keylogger.py::test_unknown_keys_ignored[key0] PASSED          [ 33%]
+tests/test_keylogger.py::test_unknown_keys_ignored[key1] PASSED          [ 36%]
+tests/test_keylogger.py::test_unknown_keys_ignored[key2] PASSED          [ 38%]
+tests/test_keylogger.py::test_buffer_copy_and_clear PASSED               [ 41%]
+tests/test_keylogger.py::test_start_stop_uses_injected_listener PASSED   [ 44%]
+tests/test_keylogger.py::test_stop_persists_and_ignores_late_callbacks PASSED [ 47%]
+tests/test_keylogger.py::test_failed_start_closes_resources PASSED       [ 50%]
+tests/test_keylogger.py::test_invalid_interval[0] PASSED                 [ 52%]
+tests/test_keylogger.py::test_invalid_interval[-1] PASSED                [ 55%]
+tests/test_keylogger.py::test_invalid_interval[inf] PASSED               [ 58%]
+tests/test_keylogger.py::test_invalid_interval[nan] PASSED               [ 61%]
+tests/test_keylogger.py::test_periodic_flush PASSED                      [ 63%]
+tests/test_keylogger.py::test_default_backend_rejects_non_windows PASSED [ 66%]
+tests/test_keylogger.py::test_listener_join_failure_still_closes_log PASSED [ 69%]
+tests/test_keylogger.py::test_background_flush_failure_reported PASSED   [ 72%]
+tests/test_log_handler.py::test_file_created PASSED                      [ 75%]
+tests/test_log_handler.py::test_write_flushes_to_disk PASSED             [ 77%]
+tests/test_log_handler.py::test_reopen_appends PASSED                    [ 80%]
+tests/test_log_handler.py::test_read_flushes_pending_text PASSED         [ 83%]
+tests/test_log_handler.py::test_clear_log[False] PASSED                  [ 86%]
+tests/test_log_handler.py::test_clear_log[True] PASSED                   [ 88%]
+tests/test_log_handler.py::test_closed_operations_are_safe PASSED        [ 91%]
+tests/test_log_handler.py::test_filename_without_directory PASSED        [ 94%]
+tests/test_log_handler.py::test_missing_log_returns_empty PASSED         [ 97%]
+tests/test_log_handler.py::test_context_closes_on_exception PASSED       [100%]
+
+============================= 36 passed in 0.26s ==============================
+=== Keylogger Test Suite Diagnostics ===
+[OK] Python: 3.14.7
+[OK] Live capture requires Windows
+[OK] Package: pytest 9.1.1
+[OK] Package: pynput 1.8.2
+[OK] Log directory is writable: C:\Users\SOC\Documents\keylogger-test-suite\logs
+[OK] Module: src.keylogger
+[OK] Module: src.log_handler
+All checks passed. Run: python -m pytest tests/ -v
