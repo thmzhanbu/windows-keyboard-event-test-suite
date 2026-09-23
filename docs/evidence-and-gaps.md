@@ -23,7 +23,7 @@ The complete Windows `test_report.txt` has not been supplied with the screenshot
 
 ## Review of all 12 screenshots
 
-Only **08, 11, and 12** are included in this repository. Keep the original full collection as personal lab notes. A short portfolio should emphasize results and reasoning rather than every setup action.
+Of the original Windows collection, only **08, 11, and 12** are included in this repository. A separately supplied macOS prototype warning image is described below. Keep the original full collection as personal lab notes. A short portfolio should emphasize results and reasoning rather than every setup action.
 
 | Original filename | Selection | Reason |
 |---|---|---|
@@ -43,6 +43,8 @@ Only **08, 11, and 12** are included in this repository. Keep the original full 
 No credentials or personal captured input were visible in the reviewed images. Paths reveal the lab account name `SOC`; screenshot 03 also shows a package maintainer's public email. The terminal text is readable at full size, so images link to their originals. VM clocks vary between early screenshots; do not treat the taskbar dates as a reliable activity timeline.
 
 ## Remaining areas and priorities
+
+The separately supplied macOS `Keylogger.py` prototype and `keylog.txt` do not close the Windows-source/report gap. The [project progression](project-evolution.md) preserves the prototype as source text and includes its 4:10 PM permission-warning screenshot as troubleshooting evidence. The raw log is not committed. Its 56 timestamped entries are consistent with the script's format, but they cannot be tied to the pictured launch or used to claim verified Windows integration. The later screenshot repeats the warning and adds a stop message; it is not needed in the showcase.
 
 1. **Preserve the original Windows report and source.** Export them from the VM if exact historical reproducibility is needed. Keep them separately identified from the maintained version.
 2. **Initial CI verification completed.** The linked run succeeded on Windows and Linux for commit `032e860d84c8c926840812e1a6b9c52a0e79054e`. The included [CI workflow](../.github/workflows/tests.yml) checks subsequent revisions too; inspect the run for the specific commit being discussed. Historical VM screenshots retain their original meaning.

@@ -38,6 +38,12 @@ The Windows screenshots show 10 log-handler, 21 event-handling, and 5 diagnostic
 
 An installation command omitted `-m`, causing Python to look for a file named `pip`. The corrected form, `python.exe -m pip`, runs pip as a module in the selected environment. A later report check found diagnostics but no test summary; the earlier screenshot shows a malformed `tests-v` argument. I reran the corrected command, saved the output, and searched the report for both `36 passed` and `All checks passed`. `Tee-Object` helped display and save the result; the evidence does not establish output redirection as the cause of the earlier failure.
 
+## How does this relate to your earlier prototype?
+
+“The earlier script helped me learn `pynput` callbacks, special-key handling, append-mode file writing, timestamps, and an Escape stop condition. The later guided lab applies related concepts in separate event-handling and storage components, with mocks and automated tests. It does not import the old script, and it does not retain timestamps or the Escape shortcut. I describe it as a progression in learning and testability rather than claiming a direct integration or complete feature parity.”
+
+The [source comparison](project-evolution.md) provides concrete examples. The macOS permission-warning screenshot and the local log cannot establish a successful capture session tied to that exact run.
+
 ## Resume wording
 
 - Completed a guided Windows 11 Python testing lab with 36 passing automated tests covering simulated keyboard events, file logging, lifecycle cleanup, and diagnostic failures.
