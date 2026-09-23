@@ -6,6 +6,10 @@ A Python testing and troubleshooting project built in a Windows 11 lab. It verif
 
 **Skills demonstrated:** Python · pytest · unittest.mock · file I/O · exception handling · environment diagnostics · PowerShell · technical documentation
 
+## Project progression
+
+I first explored keyboard callbacks and timestamped local logging in a small macOS Python prototype. I then completed this guided Windows testing lab, moving into separated components, mock listeners, automated checks, and reproducible evidence. The [prototype-to-test-suite walkthrough](docs/project-evolution.md) compares the source and explains the design changes. This is a learning progression; the current suite does not directly import the earlier script. Its timestamp and Escape shortcut were not carried into the current module.
+
 ## What this project does
 
 The project separates event handling from file storage so each part can be tested independently. This makes it possible to investigate a failed test without collecting real keyboard input.
@@ -91,10 +95,12 @@ tests/
   test_diagnose.py              5 diagnostic test cases
 diagnose.py                    Environment preflight
 docs/
+  project-evolution.md         Earlier prototype and design progression
+  prototype-source.py.txt      Original prototype preserved as source text
   code-walkthrough.md          Important code and commands explained
   interview-notes.md           Project explanation and interview practice
   evidence-and-gaps.md         Screenshot review and improvement plan
-  screenshots/                Three selected Windows screenshots
+  screenshots/                Windows results and prototype warning evidence
 reports/                      Separately labeled local verification
 .github/workflows/tests.yml    Windows and Linux automated test workflow
 requirements.txt              Dependency ranges
